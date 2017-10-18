@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Oct 18, 2017 at 06:15 PM
+-- Generation Time: Oct 18, 2017 at 08:26 PM
 -- Server version: 10.1.26-MariaDB
 -- PHP Version: 7.1.8
 
@@ -50,6 +50,60 @@ CREATE TABLE `faculty` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `faculty_review`
+--
+
+CREATE TABLE `faculty_review` (
+  `faculty_id` int(11) NOT NULL,
+  `reid` int(11) NOT NULL,
+  `year` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `project`
+--
+
+CREATE TABLE `project` (
+  `pid` int(11) NOT NULL,
+  `pdescr` int(11) DEFAULT NULL,
+  `domain` int(11) DEFAULT NULL,
+  `tech_used` int(11) DEFAULT NULL,
+  `year` int(11) NOT NULL,
+  `reid` int(11) NOT NULL,
+  `faculty_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `review`
+--
+
+CREATE TABLE `review` (
+  `reid` int(11) NOT NULL,
+  `report` varchar(20) NOT NULL,
+  `pid` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `review_details`
+--
+
+CREATE TABLE `review_details` (
+  `reid` int(11) NOT NULL,
+  `date` date NOT NULL,
+  `time` time NOT NULL,
+  `lab` varchar(20) NOT NULL,
+  `pid` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `student`
 --
 
@@ -66,6 +120,22 @@ CREATE TABLE `student` (
   `mothers_name` varchar(20) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `student_project`
+--
+
+CREATE TABLE `student_project` (
+  `roll_no` int(11) NOT NULL,
+  `pid` int(11) NOT NULL,
+  `faculty_id` int(11) NOT NULL,
+  `avgmks1` int(11) DEFAULT NULL COMMENT 'average marks of review 1',
+  `avgmks2` int(11) DEFAULT NULL COMMENT 'average marks of review 2',
+  `avgmks3` int(11) DEFAULT NULL COMMENT 'average marks of review 3',
+  `Imarks` int(11) DEFAULT NULL COMMENT 'Final internal marks'
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
 --
 -- Indexes for dumped tables
 --
@@ -77,10 +147,34 @@ ALTER TABLE `faculty`
   ADD PRIMARY KEY (`faculty_id`);
 
 --
+-- Indexes for table `project`
+--
+ALTER TABLE `project`
+  ADD PRIMARY KEY (`pid`);
+
+--
+-- Indexes for table `review`
+--
+ALTER TABLE `review`
+  ADD PRIMARY KEY (`reid`);
+
+--
+-- Indexes for table `review_details`
+--
+ALTER TABLE `review_details`
+  ADD PRIMARY KEY (`reid`);
+
+--
 -- Indexes for table `student`
 --
 ALTER TABLE `student`
   ADD PRIMARY KEY (`roll_no`);
+
+--
+-- Indexes for table `student_project`
+--
+ALTER TABLE `student_project`
+  ADD UNIQUE KEY `roll_no` (`roll_no`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
