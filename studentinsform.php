@@ -5,18 +5,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <meta name="description" content="">
+    <meta name="description" content="Form for student details">
     <meta name="author" content="">
       
     <title>Student Details Form</title>
-</head>
+  </head>
 
     <body>
     <?php
         include "header.php";
     ?>
     <div class="container">
-    <form action="speakerins.php" method="POST" class="form-signin" role="form" enctype="multipart/form-data" onsubmit="return validateForm()">
+    <form action="studentins.php" method="POST" class="form-signin" role="form" enctype="multipart/form-data" onsubmit="return validateForm()">
         
         <div class="line">
         <label for="roll">Roll No. </label>
@@ -111,6 +111,7 @@
             </span>
             </div>
         </div>
+        
         
         </form>
 	</div>
