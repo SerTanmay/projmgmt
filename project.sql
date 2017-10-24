@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Oct 18, 2017 at 08:26 PM
+-- Generation Time: Oct 24, 2017 at 07:48 PM
 -- Server version: 10.1.26-MariaDB
 -- PHP Version: 7.1.8
 
@@ -62,10 +62,22 @@ CREATE TABLE `faculty_review` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `project`
+-- Table structure for table `hod`
 --
 
-CREATE TABLE `project` (
+CREATE TABLE `hod` (
+  `username` text NOT NULL,
+  `password` text NOT NULL,
+  `faculty_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `proj`
+--
+
+CREATE TABLE `proj` (
   `pid` int(11) NOT NULL,
   `pdescr` int(11) DEFAULT NULL,
   `domain` int(11) DEFAULT NULL,
@@ -83,6 +95,8 @@ CREATE TABLE `project` (
 
 CREATE TABLE `review` (
   `reid` int(11) NOT NULL,
+  `marks` int(11) NOT NULL,
+  `roll_no` int(11) NOT NULL,
   `report` varchar(20) NOT NULL,
   `pid` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -123,10 +137,10 @@ CREATE TABLE `student` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `student_project`
+-- Table structure for table `student_proj`
 --
 
-CREATE TABLE `student_project` (
+CREATE TABLE `student_proj` (
   `roll_no` int(11) NOT NULL,
   `pid` int(11) NOT NULL,
   `faculty_id` int(11) NOT NULL,
@@ -147,16 +161,26 @@ ALTER TABLE `faculty`
   ADD PRIMARY KEY (`faculty_id`);
 
 --
--- Indexes for table `project`
+-- Indexes for table `faculty_review`
 --
-ALTER TABLE `project`
-  ADD PRIMARY KEY (`pid`);
+ALTER TABLE `faculty_review`
+  ADD KEY `reid` (`reid`);
+
+--
+-- Indexes for table `proj`
+--
+ALTER TABLE `proj`
+  ADD PRIMARY KEY (`pid`),
+  ADD KEY `faculty_id` (`faculty_id`),
+  ADD KEY `reid` (`reid`);
 
 --
 -- Indexes for table `review`
 --
 ALTER TABLE `review`
-  ADD PRIMARY KEY (`reid`);
+  ADD KEY `pid` (`pid`),
+  ADD KEY `reid` (`reid`),
+  ADD KEY `roll_no` (`roll_no`);
 
 --
 -- Indexes for table `review_details`
@@ -171,10 +195,43 @@ ALTER TABLE `student`
   ADD PRIMARY KEY (`roll_no`);
 
 --
--- Indexes for table `student_project`
+-- Indexes for table `student_proj`
 --
-ALTER TABLE `student_project`
-  ADD UNIQUE KEY `roll_no` (`roll_no`);
+ALTER TABLE `student_proj`
+  ADD UNIQUE KEY `roll_no` (`roll_no`),
+  ADD KEY `faculty_id` (`faculty_id`);
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `faculty_review`
+--
+ALTER TABLE `faculty_review`
+  ADD CONSTRAINT `faculty_review_ibfk_1` FOREIGN KEY (`reid`) REFERENCES `review_details` (`reid`);
+
+--
+-- Constraints for table `proj`
+--
+ALTER TABLE `proj`
+  ADD CONSTRAINT `proj_ibfk_1` FOREIGN KEY (`faculty_id`) REFERENCES `faculty` (`faculty_id`),
+  ADD CONSTRAINT `proj_ibfk_2` FOREIGN KEY (`reid`) REFERENCES `review_details` (`reid`);
+
+--
+-- Constraints for table `review`
+--
+ALTER TABLE `review`
+  ADD CONSTRAINT `review_ibfk_1` FOREIGN KEY (`pid`) REFERENCES `proj` (`pid`),
+  ADD CONSTRAINT `review_ibfk_2` FOREIGN KEY (`reid`) REFERENCES `review_details` (`reid`),
+  ADD CONSTRAINT `review_ibfk_3` FOREIGN KEY (`roll_no`) REFERENCES `student` (`roll_no`);
+
+--
+-- Constraints for table `student_proj`
+--
+ALTER TABLE `student_proj`
+  ADD CONSTRAINT `student_proj_ibfk_1` FOREIGN KEY (`faculty_id`) REFERENCES `faculty` (`faculty_id`),
+  ADD CONSTRAINT `student_proj_ibfk_2` FOREIGN KEY (`roll_no`) REFERENCES `student` (`roll_no`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
