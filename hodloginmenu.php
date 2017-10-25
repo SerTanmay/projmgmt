@@ -7,28 +7,10 @@
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" href="bootstrap-3.3.7/docs/favicon.ico">
+    
 
-    <title>Administrator Login Menu</title>
+    <title>HOD Login Menu</title>
 
-    <!-- Bootstrap core CSS -->
-    <link href="bootstrap-3.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <link href="bootstrap-3.3.7/docs/assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
-
-    <!-- Custom styles for this template -->
-    <link href="bootstrap-3.3.7/docs/examples/signin/signin.css" rel="stylesheet">
-
-    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
-    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
-    <script src="bootstrap-3.3.7/docs/assets/js/ie-emulation-modes-warning.js"></script>
-
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
     <style>
         body {
             padding: 40px 15px;
@@ -45,40 +27,31 @@
   </head>
     
     <body>
+    
+    <?php
+        /*
+        session_start();
+        
+        if($_SESSION['name']=="")
+        {
+            header("Location: hodloginform.php");
+        }
+        */
+        include "header.php";
+    ?>
 
-    <nav class="navbar navbar-inverse navbar-fixed-top">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="home.html">Home</a>
-        </div>
-        <div id="navbar" class="collapse navbar-collapse">
-          <ul class="nav navbar-nav">
-            <!--<li class="active"><a href="home.html">Home</a></li>-->
-            <li><a href="adminlogin.html">Admin Login</a></li>
-            <li><a href="viewbooks.php">View Books</a></li>
-            <li><a href="about.html">About</a></li>
-          </ul>
-        </div><!--/.nav-collapse -->
-      </div>
-    </nav>
-    <br>
-    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="bootstrap-3.3.7/docs/assets/js/ie10-viewport-bug-workaround.js"></script>
-
-    <h1>Library Administrator Options:</h1><br>
+    <h1>HOD Options:</h1><br>
     <ol>
-        <li><a href="insertmem.html">Add member</a></li>
-        <li><a href="insertbooks.html">Add book</a></li>
-        <li><a href="updatebooks.html">Update book details</a></li>
-        <li><a href="deletebooks.html">Delete book record</a></li>
-        <li><a href="latefeeconfirm.html">Late Fee Return</a></li>
-        <li><a href="memdetview.php">Member Records</a></li>
+        <li><a href="studentinsform.php">Add student</a></li>
+        <li><a href="facultyinsform.php">Add faculty</a></li>
+        <li><a href="projinsform.php">Add project</a></li>
+        <!--<li><a href="updatebooks.html">Update student details</a></li>
+        <li><a href="updatebooks.html">Update faculty details</a></li>
+        <li><a href="updatebooks.html">Update faculty details</a></li>-->
+        <li><a href="reviewinsform.php">Create Review committee</a></li>
+        <li><a href="revdetinsform.php">Create Review Schedule</a></li>
+        <li><a href="timetable.php">Review Time Table</a></li>
+        <!--<li><a href="revmksinsform.php">Enter Review Marks</a></li>-->
     </ol>
     </body>
 </html>

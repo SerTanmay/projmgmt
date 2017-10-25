@@ -12,7 +12,7 @@
     $dbname	= "project";
 
     $dbcon = mysqli_connect($host, $username, $password, $dbname);
-    session_start();
+    //session_start();
 ?>
 </body>
 </html>

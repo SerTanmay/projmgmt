@@ -20,10 +20,10 @@
         
         <!--reviewid-->
         <div class="line">
-        <label for="reid">Review ID </label>
+        <label for="reid">Review Committee ID </label>
         <div>
         <span>
-        <input type="number" name="reid" placeholder="Review ID" required>
+        <input type="number" name="reid" placeholder="Review Committee ID" required>
             </span>
             </div>
         </div>

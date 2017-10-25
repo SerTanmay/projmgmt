@@ -42,6 +42,15 @@
             echo "</div>";
             exit(); //Exiting upon error
         }
+
+        else
+        {
+            echo "<div style='text-align:center;'>";
+            echo '<div class="alert alert-success" id="success" role="alert">';
+            echo "<strong>New review inserted.<br> Your database has been updated succesfully.</strong>";
+            echo "<br></div>";
+            echo "</div>";
+        }
         
 ?>
     

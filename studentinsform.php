@@ -13,9 +13,19 @@
 
     <body>
     <?php
+        /*
+        session_start();
+        
+        if($_SESSION['name']=="")
+        {
+            header("Location: hodloginform.php");
+        }
+        */
+
         include "header.php";
     ?>
     <div class="container">
+    <h3>Enter student details</h3>
     <form action="studentins.php" method="POST" class="form-signin" role="form" enctype="multipart/form-data" onsubmit="return validateForm()">
         
         <div class="line">
@@ -98,7 +108,7 @@
         <label for="fname">Father's Name</label>
         <div>
         <span>
-        <input type="text" name="fname" placeholder="Father's Name" required>
+        <input type="text" name="fname" placeholder="Father's Name" >
             </span>
             </div>
         </div>
@@ -107,9 +117,15 @@
         <label for="mname">Mother's Name</label>
         <div>
         <span>
-        <input type="text" name="mname" placeholder="Mother's Name" required>
+        <input type="text" name="mname" placeholder="Mother's Name" >
             </span>
             </div>
+        </div>
+
+        <!--Submit-->
+        <div style="text-align:center;">
+        <input type="submit" name = "button" value="Submit">
+        <input type="reset" name = "button" value="Reset">
         </div>
         
         

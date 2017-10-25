@@ -27,7 +27,7 @@
     $username=$_POST['user_name']; 
     $password=$_POST['password'];
 
-    $sql="SELECT * FROM hod WHERE faculty_id='{$username}' and password='{$password}'";
+    $sql="SELECT * FROM hod WHERE faculty_id='$username' and password='$password'";
     $result=mysqli_query($dbcon,$sql);
     if (!$result) {
         echo '<div class="alert alert-danger" role="alert">';

@@ -16,6 +16,7 @@
         include "header.php";
     ?>
     <div class="container">
+    <h3>Enter faculty details</h3>
     <form action="facultyins.php" method="POST" class="form-signin" role="form" enctype="multipart/form-data" onsubmit="return validateForm()">
         
         <!--ID-->
@@ -43,7 +44,7 @@
         <label for="ophone">Office Phone No.</label>
         <div>
         <span>
-        <input type="number" name="ophone" placeholder="Office Phone No." required>
+        <input type="number" name="ophone" placeholder="Office Phone No." >
             </span>
             </div>
         </div>
@@ -107,7 +108,7 @@
         <label for="texpyrs">Teaching Experience</label>
         <div>
         <span>
-        <input type="number" name="texpyrs" placeholder="Teaching Experience" required>
+        <input type="number" name="texpyrs" placeholder="Teaching Experience" >
             </span>
             </div>
         </div>
@@ -117,7 +118,7 @@
         <label for="iexpyrs">Industry Experience</label>
         <div>
         <span>
-        <input type="number" name="iexpyrs" placeholder="Industry Experience" required>
+        <input type="number" name="iexpyrs" placeholder="Industry Experience" >
             </span>
             </div>
         </div>
@@ -137,7 +138,7 @@
         <label for="laddr">Local address </label>
         <div>
         <span>
-        <input type="text" name="laddr" placeholder="Local address" required>
+        <input type="text" name="laddr" placeholder="Local address" >
             </span>
             </div>
         </div>
@@ -147,7 +148,7 @@
         <label for="ug">UG University </label>
         <div>
         <span>
-        <input type="text" name="ug" placeholder="UG University" required>
+        <input type="text" name="ug" placeholder="UG University" >
             </span>
             </div>
         </div>
@@ -157,7 +158,7 @@
         <label for="pg">PG University </label>
         <div>
         <span>
-        <input type="text" name="pg" placeholder="PG University" required>
+        <input type="text" name="pg" placeholder="PG University" >
             </span>
             </div>
         </div>
@@ -167,7 +168,7 @@
         <label for="pan">Pan card no.</label>
         <div>
         <span>
-        <input type="number" name="pan" placeholder="Pan card no." required>
+        <input type="number" name="pan" placeholder="Pan card no." >
             </span>
             </div>
         </div>
@@ -177,7 +178,7 @@
         <label for="elec">Election card no.</label>
         <div>
         <span>
-        <input type="number" name="elec" placeholder="Election card no." required>
+        <input type="number" name="elec" placeholder="Election card no." >
             </span>
             </div>
         </div>

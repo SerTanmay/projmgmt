@@ -18,7 +18,7 @@
 
     <div class="container">
         
-      <form action="adminlogin.php" method="POST" class="form-signin" role="form">
+      <form action="hodlogin.php" method="POST" class="form-signin" role="form">
         <h2 class="form-signin-heading">Please sign in</h2>
         HOD ID:<input type="text" id="inputID" name="user_name" class="form-control" placeholder="Administrator ID" required autofocus><br>
         Password:<input type="password" name="password" class="form-control" placeholder="Password" required><br>

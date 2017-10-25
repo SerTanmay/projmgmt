@@ -8,68 +8,54 @@
     <meta name="description" content="Form for student details">
     <meta name="author" content="">
       
-    <title>Review Details Form</title>
+    <title>Faculty Review Form</title>
   </head>
 
     <body>
     <?php
-        /*
-        session_start();
-        
-        if($_SESSION['name']=="")
-        {
-            header("Location: hodloginform.php");
-        }
-        */
-        
         include "header.php";
     ?>
     <div class="container">
-
-    <h3>Enter review details</h3>
-    <form action="revdetins.php" method="POST" class="form-signin" role="form" enctype="multipart/form-data" onsubmit="return validateForm()">
+    <h3>Review 1: Marks</h3>
+    <h5>Enter details</h5>
+    <form action="projins.php" method="POST" class="form-signin" role="form" enctype="multipart/form-data" onsubmit="return validateForm()">
+        
         
         <div class="line">
-        <label for="reid">Review Committee ID</label>
+        <label for="roll">Student's Roll No.</label>
         <div>
         <span>
-        <input type="number" name="reid" placeholder="Review Committee ID" required>
-            </span>
-            </div>
-        </div>
-        
-        <div class="line">
-        <label for="date">Date of Review</label>
-        <div>
-        <span>
-        <input type="date" name="date" placeholder="Date of Review" required>
+        <input type="number" name="fid" placeholder="Faculty ID" required>
             </span>
             </div>
         </div>
 
+        <!--reviewid-->
         <div class="line">
-        <label for="time">Time of Review </label>
+        <label for="reid">Review ID </label>
         <div>
         <span>
-        <input type="time" name="time" placeholder="Time of Review" required>
+        <input type="number" name="reid" placeholder="Review ID" required>
             </span>
             </div>
         </div>
-        
+
+        <!--Year-->
         <div class="line">
-        <label for="pid">Project ID </label>
+        <label for="year">Year </label>
         <div>
         <span>
-        <input type="number" name="pid" placeholder="Project ID" required>
+        <input type="number" name="year" placeholder="Year" required>
             </span>
             </div>
         </div>
-        
+
+        <!--Submit-->
         <div style="text-align:center;">
         <input type="submit" name = "button" value="Submit">
         <input type="reset" name = "button" value="Reset">
         </div>
-
+        
         </form>
 	</div>
   </body>

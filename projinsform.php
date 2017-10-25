@@ -13,14 +13,23 @@
 
     <body>
     <?php
+        /*
+        session_start();
+        
+        if($_SESSION['name']=="")
+        {
+            header("Location: hodloginform.php");
+        }
+        */
         include "header.php";
     ?>
     <div class="container">
+    <h3>Enter project details</h3>
     <form action="projins.php" method="POST" class="form-signin" role="form" enctype="multipart/form-data" onsubmit="return validateForm()">
         
         <!--pID-->
         <div class="line">
-        <label for="pid">Faculty ID </label>
+        <label for="pid">Project ID </label>
         <div>
         <span>
         <input type="number" name="pid" placeholder="Project ID" required>
@@ -33,7 +42,7 @@
         <label for="pdescr">Project Description </label>
         <div>
         <span>
-        <input type="text" name="pdescr" placeholder="Project Description" required>
+        <input type="text" name="pdescr" placeholder="Project Description" >
             </span>
             </div>
         </div>
@@ -43,7 +52,7 @@
         <label for="dom">Domain </label>
         <div>
         <span>
-        <input type="text" name="dom" placeholder="Domain" required>
+        <input type="text" name="dom" placeholder="Domain" >
             </span>
             </div>
         </div>
@@ -53,7 +62,7 @@
         <label for="tech">Tech Used </label>
         <div>
         <span>
-        <input type="text" name="tech" placeholder="Tech Used" required>
+        <input type="text" name="tech" placeholder="Tech Used" >
             </span>
             </div>
         </div>
