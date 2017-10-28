@@ -72,14 +72,14 @@ th, td {
     <img id="line" src="newheader.png" width="100%" height="250" align="center">
 -->    
 <?php
-
+    /*
     session_start();
     
 	if($_SESSION['name']=="")
     {
         header("Location: welcome.php");
     }
-	
+	*/
     include "header.php";
 	
     echo "<br>";
@@ -92,50 +92,7 @@ $current_date = date('d-m-Y');
 $d=date("d",strtotime($current_date));
 $m=date("m",strtotime($current_date));
 $y=date("Y",strtotime($current_date));
-$y=$y+$shift;           //Shifting year (previous and next)
-
-    
-/*In case Loop implementation failed: Start from this month 
-$month[0] = date("M");
-$month[1] = date("M",strtotime($month[0]."+1 month"));
-$month[2] = date("M",strtotime($month[1]."+1 month"));
-$month[3] = date("M",strtotime($month[2]."+1 month"));
-$month[4] = date("M",strtotime($month[3]."+1 month"));
-$month[5] = date("M",strtotime($month[4]."+1 month"));
-$month[6] = date("M",strtotime($month[5]."+1 month"));
-$month[7] = date("M",strtotime($month[6]."+1 month"));
-$month[8] = date("M",strtotime($month[7]."+1 month"));
-$month[9] = date("M",strtotime($month[8]."+1 month"));
-$month[10] = date("M",strtotime($month[9]."+1 month"));
-$month[11] = date("M",strtotime($month[10]."+1 month"));
-*/
-
-//Generating months for table headers    
-//Loop implementation success
-for($i=0;$i<12;$i++)
-{
-    $month[$i] = date("M",strtotime($dategen[$i]));
-}
-
-//alloting every month's alternate Fridays to calendar
-for($i=0;$i<12;$i++)
-{
-    $date[0][$i]=date("d-m-Y",strtotime("first Friday of $dategen[$i]"));
-    $date[1][$i]=date("d-m-Y",strtotime("third Friday of $dategen[$i]"));
-}
-
-/*
-    //alloting every month's alternate Fridays to calendar
-    $date[0]=date("d-m-Y",strtotime("first Friday of $month[$i]"));
-    $date[1]=date("d-m-Y",strtotime("third Friday of $month[$i]"));
-    $day[0]=date("d",strtotime("first Friday of $month[$i]"));
-    $day[1]=date("d",strtotime("third Friday of $month[$i]"));
-    //echo $date[0];
-    //echo "<br>";
-    //echo $date[1];
-    //echo "<br>";
-*/
-
+   
 echo "<div align='center'>";
 echo "<h2>";
 echo "Review Time Table - ".$y;
@@ -146,96 +103,47 @@ echo "</div>";
 echo "<table width='80%' align='center'>";
 
 echo "<tr>";
-echo "<th>Review ID</th>";
-echo "<th>Project members</th>";
-echo "<th>Date</th>";
+echo "<th>Review Committee ID</th>";
+echo "<th>Project ID</th>";
 echo "<th>Time</th>";
+echo "<th>Lab</th>";
+echo "<th>Date</th>";
 echo "</tr>";
 
 
-$sql = "SELECT * FROM review_details AS revdet
-JOIN faculty_review AS facrev ON revdet.reid=facrev.reid
-JOIN student_project "
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-for($j=0;$j<2;$j++)
+$sql = "SELECT * FROM review_details revdet
+        ORDER BY rdate";
+$result = mysqli_query($dbcon,$sql);
+while($row = mysqli_fetch_array($result))
 {
+    $rcid = $row['rcid'];
+    $rpid = $row['pid'];
+    $rtime = $row['rtime'];
+    $rlab = $row['lab'];
+    $rdate = $row['rdate'];
+    
+
     //creating table rows
     echo '<tr>';
-	echo '<td>';
-	if($j==0)
-		echo 'First ';
-	if($j==1)
-		echo 'Third ';
-    echo 'Friday ';
+	
+    echo '<td>';
+	echo $rcid;
     echo '</td>';
-    for($k=0;$k<12;$k++)
-    {
-        $datetodisplay = date("d-m-y",strtotime($date[$j][$k]));
-        $dateused = date("d-m-Y",strtotime($date[$j][$k]));
-        $datetemp = $dateused."";
-        $d=date("d",strtotime($date[$j][$k]));
-        $m=date("m",strtotime($date[$j][$k]));
-        $y=date("Y",strtotime($date[$j][$k]));
-        
-        echo '<td>';
-        
-        $ts1 = strtotime($dateused);
-        $ts2 = strtotime($current_date);
-        $seconds_diff = $ts1 - $ts2;    				//stores seconds
-        $days_diff=$seconds_diff/86400;					//dividing by 86400sec = 1 day
-        //echo $days_diff;									//stores no of days
-        
-        if ($days_diff>0)
-        {
-            //echo $d;
-            $sql = "SELECT * FROM speakerdata
-            WHERE sdate='$datetemp'";
-            $result = pg_query($dbcon,$sql);
-            $r = pg_num_rows($result);
-            if($r==0)
-            {
-                //Sending date using GET method (Normal date display)
-                echo "<a href=\"speakerform.php?d=".$d."&m=".$m."&y=".$y."\">".$datetodisplay;
-                echo '</a>';
-            }
-            if($r!=0)            
-            {
-                while($row = pg_fetch_assoc($result))
-                {
-                    $sprefix = $row['prefix_spname'];
-                    $spname = $row['spname'];
-                    $stopic = $row ['stitle'];
-                }
-                //Sending date using GET method
-                //Making hyperlinks for name and topic
-                echo $datetodisplay;
-                echo "<br>";
-                echo "<br>";
-                echo "<a href=\"speakerinfo.php?d=".$d."&m=".$m."&y=".$y."\">";
-                echo $sprefix.$spname;
-                echo "</a>";
-                echo "<br>";
-                echo "<br>";
-                echo "<a href=\"speakerinfo.php?d=".$d."&m=".$m."&y=".$y."\">".$stopic."</a>";
-            }
-        }
-    }
+
+    echo '<td>';
+    echo $rpid;
+    echo '</td>';
+
+    echo '<td>';
+    echo $rcid;
+    echo '</td>';
+
+    echo '<td>';
+    echo $rcid;
+    echo '</td>';
+
     echo '</tr>';
-    
+       
 }
 
 
@@ -245,14 +153,15 @@ echo "</table>";
 echo "<br>";
 echo "<br>";
 
-if($shift>0)
-{
+
     echo "<div style='text-align:left'>";
     echo '<a href="spbookdec.php" >Previous year</a>';
     echo "</div>";
-}
+
 echo "<div style='text-align:right'>";
 echo '<a href="spbookinc.php" >Next year</a>';
 echo "</div>";
-?></body>
+?>
+    
+</body>
 </html>

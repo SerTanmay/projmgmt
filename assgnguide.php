@@ -33,32 +33,32 @@
     
     <body>
 
+    <?php
+        include "header.php";
     
+		session_start();
 
-<?php
-session_start();
+		$pid = $_POST['pid'];
+		$gfid = $_POST['gfid'];
 
-$pid = $_POST['pid'];
-$gfid = $_POST['gfid'];
-
-$q=mysqli_query($con,"SELECT * FROM proj WHERE pid='$pid'");
-while($row=mysqli_fetch_array($q))
-{
-    $e=mysqli_query($con,"UPDATE proj SET faculty_id='$gfid',  WHERE pid='$pid'");
-    if (!$e) 
-    {
-        echo '<div class="alert alert-danger" role="alert">';
-        printf("<strong>Error:</strong> %s\n</div>", mysqli_error($con));
-        exit();
-    }
-    echo '<div class="alert alert-success" id="success" role="alert">';
-    echo "<strong>Edit successful!</strong>";
-    echo "<br></div>";
-}
-echo '<ul>';
-echo '<li><a href="assgnguideform.php">Assign guides</li>';
-//echo '<li><a href="adminlogout.php">Log out</li>'
-echo '</ul>';
-?>
+		$q=mysqli_query($dbcon,"SELECT * FROM proj WHERE pid='$pid'");
+		while($row=mysqli_fetch_array($q))
+		{
+		    $e=mysqli_query($con,"UPDATE proj SET faculty_id='$gfid',  WHERE pid='$pid'");
+		    if (!$e) 
+		    {
+		        echo '<div class="alert alert-danger" role="alert">';
+		        printf("<strong>Error:</strong> %s\n</div>", mysqli_error($con));
+		        exit();
+		    }
+		    echo '<div class="alert alert-success" id="success" role="alert">';
+		    echo "<strong>Edit successful!</strong>";
+		    echo "<br></div>";
+		}
+		echo '<ul>';
+		echo '<li><a href="assgnguideform.php">Assign guides</li>';
+		//echo '<li><a href="adminlogout.php">Log out</li>'
+		echo '</ul>';
+	?>
          </body>
 </html>

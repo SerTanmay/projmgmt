@@ -32,7 +32,7 @@
 
         <!--reviewid-->
         <div class="line">
-        <label for="reid">Review ID </label>
+        <label for="reid">Review Committee CID </label>
         <div>
         <span>
         <input type="number" name="reid" placeholder="Review ID" required>
@@ -46,6 +46,42 @@
         <div>
         <span>
         <input type="number" name="year" placeholder="Year" required>
+            </span>
+            </div>
+        </div>
+
+        <div class="line">
+        <label for="mks1">Marks awarded by first faculty </label>
+        <div>
+        <span>
+        <input type="number" name="mks1" placeholder="Marks awarded by first faculty">
+            </span>
+            </div>
+        </div>
+
+        <div class="line">
+        <label for="mks2">Marks awarded by second faculty </label>
+        <div>
+        <span>
+        <input type="number" name="mks2" placeholder="Marks awarded by second faculty">
+            </span>
+            </div>
+        </div>
+
+        <div class="line">
+        <label for="mks3">Marks awarded by third faculty </label>
+        <div>
+        <span>
+        <input type="number" name="mks3" placeholder="Marks awarded by first faculty">
+            </span>
+            </div>
+        </div>
+
+        <div class="line">
+        <label for="mks4">Marks awarded by fourth faculty </label>
+        <div>
+        <span>
+        <input type="number" name="mks4" placeholder="Marks awarded by fourth faculty">
             </span>
             </div>
         </div>

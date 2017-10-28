@@ -30,12 +30,12 @@
     $dom=$_POST['dom'];
     $tech=$_POST['tech'];
     $year=$_POST['year'];
-    $reid=$_POST['reid'];
-    $fid=$_POST['fid'];
+    //$reid=$_POST['reid'];
+    //$fid=$_POST['fid'];
     
     
-    $ins="INSERT INTO proj (pid, pdescr, domain, tech_used, year, reid, faculty_id)
-	VALUES ('$pid', '$pdescr', '$dom', '$tech', '$year', '$reid', '$fid')";
+    $ins="INSERT INTO proj (pid, pdescr, domain, tech_used, year)
+	VALUES ('$pid', '$pdescr', '$dom', '$tech', '$year',)";
         
         $q=mysqli_query($dbcon,$ins);
         if (!$q) 

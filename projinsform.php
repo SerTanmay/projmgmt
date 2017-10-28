@@ -77,26 +77,6 @@
             </div>
         </div>
         
-        <!--reviewid-->
-        <div class="line">
-        <label for="reid">Review ID </label>
-        <div>
-        <span>
-        <input type="number" name="reid" placeholder="Review ID" required>
-            </span>
-            </div>
-        </div>
-
-        <!--FacultyID-->
-        <div class="line">
-        <label for="fid">Faculty ID </label>
-        <div>
-        <span>
-        <input type="number" name="fid" placeholder="Faculty ID" required>
-            </span>
-            </div>
-        </div>
-
         <!--Submit-->
         <div style="text-align:center;">
         <input type="submit" name = "button" value="Submit">
