@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Oct 24, 2017 at 07:48 PM
+-- Generation Time: Oct 28, 2017 at 07:55 AM
 -- Server version: 10.1.26-MariaDB
 -- PHP Version: 7.1.8
 
@@ -47,6 +47,13 @@ CREATE TABLE `faculty` (
   `election_card_no` varchar(20) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `faculty`
+--
+
+INSERT INTO `faculty` (`faculty_id`, `faculty_name`, `faculty_office_phone`, `faculty_mobile_no`, `faculty_email`, `joining_date`, `gender`, `birthdate`, `teaching_exp`, `industry_exp`, `permanent_address`, `local_address`, `UG_University`, `PG_University`, `pan_card_no`, `election_card_no`) VALUES
+(1, 'Rakesh Sharma', 0, 89889328, 'rakesh@gec.com', '0000-00-00', 'M', '0000-00-00', 0, 0, 'Vasco', '', '', '', '', '');
+
 -- --------------------------------------------------------
 
 --
@@ -66,10 +73,16 @@ CREATE TABLE `faculty_review` (
 --
 
 CREATE TABLE `hod` (
-  `username` text NOT NULL,
-  `password` text NOT NULL,
-  `faculty_id` int(11) NOT NULL
+  `faculty_id` int(11) NOT NULL,
+  `password` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `hod`
+--
+
+INSERT INTO `hod` (`faculty_id`, `password`) VALUES
+(1, 'hello');
 
 -- --------------------------------------------------------
 
@@ -94,24 +107,23 @@ CREATE TABLE `proj` (
 --
 
 CREATE TABLE `review` (
-  `reid` int(11) NOT NULL,
+  `rcid` int(11) NOT NULL COMMENT 'review committee id',
   `marks` int(11) NOT NULL,
   `roll_no` int(11) NOT NULL,
-  `report` varchar(20) NOT NULL,
   `pid` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `review_details`
+-- Table structure for table `review_schedule`
 --
 
-CREATE TABLE `review_details` (
-  `reid` int(11) NOT NULL,
-  `date` date NOT NULL,
-  `time` time NOT NULL,
-  `lab` varchar(20) NOT NULL,
+CREATE TABLE `review_schedule` (
+  `rcid` int(11) NOT NULL,
+  `date` int(11) NOT NULL,
+  `time` int(11) NOT NULL,
+  `lab` int(11) NOT NULL,
   `pid` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -137,10 +149,10 @@ CREATE TABLE `student` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `student_proj`
+-- Table structure for table `student_mks`
 --
 
-CREATE TABLE `student_proj` (
+CREATE TABLE `student_mks` (
   `roll_no` int(11) NOT NULL,
   `pid` int(11) NOT NULL,
   `faculty_id` int(11) NOT NULL,
@@ -167,6 +179,12 @@ ALTER TABLE `faculty_review`
   ADD KEY `reid` (`reid`);
 
 --
+-- Indexes for table `hod`
+--
+ALTER TABLE `hod`
+  ADD KEY `faculty_id` (`faculty_id`);
+
+--
 -- Indexes for table `proj`
 --
 ALTER TABLE `proj`
@@ -178,15 +196,15 @@ ALTER TABLE `proj`
 -- Indexes for table `review`
 --
 ALTER TABLE `review`
+  ADD PRIMARY KEY (`rcid`),
   ADD KEY `pid` (`pid`),
-  ADD KEY `reid` (`reid`),
   ADD KEY `roll_no` (`roll_no`);
 
 --
--- Indexes for table `review_details`
+-- Indexes for table `review_schedule`
 --
-ALTER TABLE `review_details`
-  ADD PRIMARY KEY (`reid`);
+ALTER TABLE `review_schedule`
+  ADD PRIMARY KEY (`rcid`,`pid`);
 
 --
 -- Indexes for table `student`
@@ -195,9 +213,9 @@ ALTER TABLE `student`
   ADD PRIMARY KEY (`roll_no`);
 
 --
--- Indexes for table `student_proj`
+-- Indexes for table `student_mks`
 --
-ALTER TABLE `student_proj`
+ALTER TABLE `student_mks`
   ADD UNIQUE KEY `roll_no` (`roll_no`),
   ADD KEY `faculty_id` (`faculty_id`);
 
@@ -212,6 +230,12 @@ ALTER TABLE `faculty_review`
   ADD CONSTRAINT `faculty_review_ibfk_1` FOREIGN KEY (`reid`) REFERENCES `review_details` (`reid`);
 
 --
+-- Constraints for table `hod`
+--
+ALTER TABLE `hod`
+  ADD CONSTRAINT `hod_ibfk_1` FOREIGN KEY (`faculty_id`) REFERENCES `faculty` (`faculty_id`);
+
+--
 -- Constraints for table `proj`
 --
 ALTER TABLE `proj`
@@ -223,15 +247,14 @@ ALTER TABLE `proj`
 --
 ALTER TABLE `review`
   ADD CONSTRAINT `review_ibfk_1` FOREIGN KEY (`pid`) REFERENCES `proj` (`pid`),
-  ADD CONSTRAINT `review_ibfk_2` FOREIGN KEY (`reid`) REFERENCES `review_details` (`reid`),
   ADD CONSTRAINT `review_ibfk_3` FOREIGN KEY (`roll_no`) REFERENCES `student` (`roll_no`);
 
 --
--- Constraints for table `student_proj`
+-- Constraints for table `student_mks`
 --
-ALTER TABLE `student_proj`
-  ADD CONSTRAINT `student_proj_ibfk_1` FOREIGN KEY (`faculty_id`) REFERENCES `faculty` (`faculty_id`),
-  ADD CONSTRAINT `student_proj_ibfk_2` FOREIGN KEY (`roll_no`) REFERENCES `student` (`roll_no`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `student_mks`
+  ADD CONSTRAINT `student_mks_ibfk_1` FOREIGN KEY (`faculty_id`) REFERENCES `faculty` (`faculty_id`),
+  ADD CONSTRAINT `student_mks_ibfk_2` FOREIGN KEY (`roll_no`) REFERENCES `student` (`roll_no`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

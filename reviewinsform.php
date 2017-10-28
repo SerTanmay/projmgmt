@@ -27,17 +27,7 @@
             </span>
             </div>
         </div>
-
-        <!--report-->
-        <div class="line">
-        <label for="rep">Report </label>
-        <div>
-        <span>
-        <input type="text" name="rep" placeholder="Report" required>
-            </span>
-            </div>
-        </div>
-        
+    
         <!--pID-->
         <div class="line">
         <label for="pid">Faculty ID </label>
