@@ -8,7 +8,7 @@
     <meta name="description" content="Form for student details">
     <meta name="author" content="">
       
-    <title>Faculty Review Form</title>
+    <title>Review 1 Marks</title>
   </head>
 
     <body>
@@ -25,17 +25,17 @@
         <label for="roll">Student's Roll No.</label>
         <div>
         <span>
-        <input type="number" name="fid" placeholder="Faculty ID" required>
+        <input type="number" name="roll" placeholder="Faculty ID" required>
             </span>
             </div>
         </div>
 
         <!--reviewid-->
         <div class="line">
-        <label for="reid">Review Committee CID </label>
+        <label for="rcid">Review Committee ID </label>
         <div>
         <span>
-        <input type="number" name="reid" placeholder="Review ID" required>
+        <input type="number" name="rcid" placeholder="Review Committee ID" required>
             </span>
             </div>
         </div>

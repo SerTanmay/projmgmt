@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Oct 28, 2017 at 07:55 AM
+-- Generation Time: Oct 29, 2017 at 01:30 PM
 -- Server version: 10.1.26-MariaDB
 -- PHP Version: 7.1.8
 
@@ -62,7 +62,7 @@ INSERT INTO `faculty` (`faculty_id`, `faculty_name`, `faculty_office_phone`, `fa
 
 CREATE TABLE `faculty_review` (
   `faculty_id` int(11) NOT NULL,
-  `reid` int(11) NOT NULL,
+  `rcid` int(11) NOT NULL,
   `year` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -96,7 +96,7 @@ CREATE TABLE `proj` (
   `domain` int(11) DEFAULT NULL,
   `tech_used` int(11) DEFAULT NULL,
   `year` int(11) NOT NULL,
-  `reid` int(11) NOT NULL,
+  `rcid` int(11) NOT NULL,
   `faculty_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -173,32 +173,16 @@ ALTER TABLE `faculty`
   ADD PRIMARY KEY (`faculty_id`);
 
 --
--- Indexes for table `faculty_review`
---
-ALTER TABLE `faculty_review`
-  ADD KEY `reid` (`reid`);
-
---
--- Indexes for table `hod`
---
-ALTER TABLE `hod`
-  ADD KEY `faculty_id` (`faculty_id`);
-
---
 -- Indexes for table `proj`
 --
 ALTER TABLE `proj`
-  ADD PRIMARY KEY (`pid`),
-  ADD KEY `faculty_id` (`faculty_id`),
-  ADD KEY `reid` (`reid`);
+  ADD PRIMARY KEY (`pid`);
 
 --
 -- Indexes for table `review`
 --
 ALTER TABLE `review`
-  ADD PRIMARY KEY (`rcid`),
-  ADD KEY `pid` (`pid`),
-  ADD KEY `roll_no` (`roll_no`);
+  ADD PRIMARY KEY (`rcid`);
 
 --
 -- Indexes for table `review_schedule`
@@ -211,50 +195,6 @@ ALTER TABLE `review_schedule`
 --
 ALTER TABLE `student`
   ADD PRIMARY KEY (`roll_no`);
-
---
--- Indexes for table `student_mks`
---
-ALTER TABLE `student_mks`
-  ADD UNIQUE KEY `roll_no` (`roll_no`),
-  ADD KEY `faculty_id` (`faculty_id`);
-
---
--- Constraints for dumped tables
---
-
---
--- Constraints for table `faculty_review`
---
-ALTER TABLE `faculty_review`
-  ADD CONSTRAINT `faculty_review_ibfk_1` FOREIGN KEY (`reid`) REFERENCES `review_details` (`reid`);
-
---
--- Constraints for table `hod`
---
-ALTER TABLE `hod`
-  ADD CONSTRAINT `hod_ibfk_1` FOREIGN KEY (`faculty_id`) REFERENCES `faculty` (`faculty_id`);
-
---
--- Constraints for table `proj`
---
-ALTER TABLE `proj`
-  ADD CONSTRAINT `proj_ibfk_1` FOREIGN KEY (`faculty_id`) REFERENCES `faculty` (`faculty_id`),
-  ADD CONSTRAINT `proj_ibfk_2` FOREIGN KEY (`reid`) REFERENCES `review_details` (`reid`);
-
---
--- Constraints for table `review`
---
-ALTER TABLE `review`
-  ADD CONSTRAINT `review_ibfk_1` FOREIGN KEY (`pid`) REFERENCES `proj` (`pid`),
-  ADD CONSTRAINT `review_ibfk_3` FOREIGN KEY (`roll_no`) REFERENCES `student` (`roll_no`);
-
---
--- Constraints for table `student_mks`
---
-ALTER TABLE `student_mks`
-  ADD CONSTRAINT `student_mks_ibfk_1` FOREIGN KEY (`faculty_id`) REFERENCES `faculty` (`faculty_id`),
-  ADD CONSTRAINT `student_mks_ibfk_2` FOREIGN KEY (`roll_no`) REFERENCES `student` (`roll_no`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
