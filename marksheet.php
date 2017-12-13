@@ -38,13 +38,7 @@ echo "</div>";
 //First row of table: headings
 echo "<table width='80%' align='center'>";
 
-echo "<tr>";
-echo "<th>Review Committee ID</th>";
-echo "<th>Project ID</th>";
-echo "<th>Time</th>";
-echo "<th>Lab</th>";
-echo "<th>Date</th>";
-echo "</tr>";
+
 
 $sql = "SELECT * FROM student stu
         JOIN student_marks stmks
@@ -53,13 +47,18 @@ $sql = "SELECT * FROM student stu
 
 $result = mysqli_query($dbcon,$sql);
 
-while($row = mysqli_fetch_array($result))
+$row = mysqli_fetch_array($result)
 {
-    $rcid = $row['rcid'];
-    $rpid = $row['pid'];
-    $rtime = $row['rtime'];
-    $rlab = $row['lab'];
-    $rdate = $row['rdate'];
+    $name = $row['name'];
+    $addr = $row['address'];
+    $gender = $row['gender'];
+    $dob = $row['date_of_birth'];
+    $phone = $row['phone_no'];
+    $phone = $row['phone_no'];
+    $phone = $row['phone_no'];
+    $phone = $row['phone_no'];
+    $phone = $row['phone_no'];
+    $phone = $row['phone_no'];
     
 
     //creating table rows

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Oct 29, 2017 at 01:30 PM
+-- Generation Time: Dec 13, 2017 at 07:51 PM
 -- Server version: 10.1.26-MariaDB
 -- PHP Version: 7.1.8
 
@@ -52,7 +52,29 @@ CREATE TABLE `faculty` (
 --
 
 INSERT INTO `faculty` (`faculty_id`, `faculty_name`, `faculty_office_phone`, `faculty_mobile_no`, `faculty_email`, `joining_date`, `gender`, `birthdate`, `teaching_exp`, `industry_exp`, `permanent_address`, `local_address`, `UG_University`, `PG_University`, `pan_card_no`, `election_card_no`) VALUES
-(1, 'Rakesh Sharma', 0, 89889328, 'rakesh@gec.com', '0000-00-00', 'M', '0000-00-00', 0, 0, 'Vasco', '', '', '', '', '');
+(1, 'J.A.Laxminarayana', 8322733451, 89889328, 'jal@gec.com', '0000-00-00', 'M', '0000-00-00', 0, 5, 'Vasco', '', 'Mysore', 'Mysore', '1233', '6784'),
+(2, 'Marushka Mascarenhas', 8322733452, 8622791235, 'marushka@gec.com', '1999-07-02', 'F', '1968-05-12', 20, 2, 'margao', '', 'goa', 'bombay', '1234', '5678'),
+(3, 'Amit Patil', 8322733453, 9422654651, 'amit@gec.com', '2013-04-02', 'M', '1978-04-09', 6, 1, 'ponda', 'dhavali', 'goa', 'karnataka', '1237', '6789'),
+(4, 'Vineet Jain', 8322733454, 9823654141, 'vineet@gec.com', '2000-06-04', 'M', '1978-02-15', 15, 2, 'ponda', 'Mardol', 'Delhi', 'Pilani', '1235', '6780'),
+(5, 'Nagraj vernekar', 8322733455, 9423881166, 'nagraj@gec.com', '1998-04-02', 'M', '1989-08-11', 21, 3, 'mapusa', 'panjim', 'bombay', 'bombay', '1236', '6781');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `faculty_login`
+--
+
+CREATE TABLE `faculty_login` (
+  `faculty_id` int(11) NOT NULL,
+  `password` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `faculty_login`
+--
+
+INSERT INTO `faculty_login` (`faculty_id`, `password`) VALUES
+(2, 'hi');
 
 -- --------------------------------------------------------
 
@@ -65,6 +87,15 @@ CREATE TABLE `faculty_review` (
   `rcid` int(11) NOT NULL,
   `year` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `faculty_review`
+--
+
+INSERT INTO `faculty_review` (`faculty_id`, `rcid`, `year`) VALUES
+(2, 2, 2016),
+(3, 2, 2016),
+(5, 1, 2016);
 
 -- --------------------------------------------------------
 
@@ -92,13 +123,21 @@ INSERT INTO `hod` (`faculty_id`, `password`) VALUES
 
 CREATE TABLE `proj` (
   `pid` int(11) NOT NULL,
-  `pdescr` int(11) DEFAULT NULL,
-  `domain` int(11) DEFAULT NULL,
-  `tech_used` int(11) DEFAULT NULL,
+  `pdescr` varchar(50) DEFAULT NULL,
+  `domain` varchar(30) DEFAULT NULL,
+  `tech_used` varchar(30) DEFAULT NULL,
   `year` int(11) NOT NULL,
   `rcid` int(11) NOT NULL,
   `faculty_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `proj`
+--
+
+INSERT INTO `proj` (`pid`, `pdescr`, `domain`, `tech_used`, `year`, `rcid`, `faculty_id`) VALUES
+(1, 'home automation', 'iot', 'microcontroller', 2016, 1, 4),
+(2, 'machine interfacing', 'machine learning', 'linux server kernel', 2016, 2, 3);
 
 -- --------------------------------------------------------
 
@@ -116,10 +155,10 @@ CREATE TABLE `review` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `review_schedule`
+-- Table structure for table `review_details`
 --
 
-CREATE TABLE `review_schedule` (
+CREATE TABLE `review_details` (
   `rcid` int(11) NOT NULL,
   `date` int(11) NOT NULL,
   `time` int(11) NOT NULL,
@@ -146,6 +185,14 @@ CREATE TABLE `student` (
   `mothers_name` varchar(20) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `student`
+--
+
+INSERT INTO `student` (`roll_no`, `name`, `address`, `gender`, `date_of_birth`, `phone_no`, `email_id`, `joining_year`, `fathers_name`, `mothers_name`) VALUES
+(141205012, 'Rahul', 'panjim', 'M', '1995-12-06', 9822164451, 'rm@gmail.com', 2013, 'Rakesh', 'Reena'),
+(141205025, 'Seema', 'ponda', 'F', '1995-07-19', 9822164444, 'seema@gmail.com', 2013, 'Ramesh', 'Sneha');
+
 -- --------------------------------------------------------
 
 --
@@ -161,6 +208,13 @@ CREATE TABLE `student_mks` (
   `avgmks3` int(11) DEFAULT NULL COMMENT 'average marks of review 3',
   `Imarks` int(11) DEFAULT NULL COMMENT 'Final internal marks'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `student_mks`
+--
+
+INSERT INTO `student_mks` (`roll_no`, `pid`, `faculty_id`, `avgmks1`, `avgmks2`, `avgmks3`, `Imarks`) VALUES
+(141205012, 2, 3, 9, NULL, NULL, NULL);
 
 --
 -- Indexes for dumped tables
@@ -185,9 +239,9 @@ ALTER TABLE `review`
   ADD PRIMARY KEY (`rcid`);
 
 --
--- Indexes for table `review_schedule`
+-- Indexes for table `review_details`
 --
-ALTER TABLE `review_schedule`
+ALTER TABLE `review_details`
   ADD PRIMARY KEY (`rcid`,`pid`);
 
 --
