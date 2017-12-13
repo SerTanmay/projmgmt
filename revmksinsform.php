@@ -8,29 +8,44 @@
     <meta name="description" content="Form for student details">
     <meta name="author" content="">
 
-    <!--<link rel="stylesheet" type="text/css" href="form.css">-->
+    <link rel="stylesheet" type="text/css" href="form.css">
       
-    <title>Review 1 Marks</title>
+    <title>Review Marks</title>
   </head>
 
     <body>
     <?php
+        include "sessionheader.php";
         include "header.php";
     ?>
     <div class="container">
-    <h3>Review 1: Marks</h3>
-    <h5>Enter details</h5>
-    <form action="rev1.php" method="POST" class="form-signin" role="form" enctype="multipart/form-data" onsubmit="return validateForm()">
+    
+    <form action="revmksins.php" method="POST" class="form-signin" role="form" enctype="multipart/form-data" onsubmit="return validateForm()">
+
+        <h1>Review: Marks</h1>
+        <h2>Enter details</h2>
         
+        <div class="line">
+        <label for="revno">Enter Review No. (1/2/3)</label>
+        <div>
+        <span>
+        <input type="number" name="revno" placeholder="Review No." required>
+            </span>
+            </div>
+        </div>
+
+        <br><br>
         
         <div class="line">
         <label for="roll">Student's Roll No.</label>
         <div>
         <span>
-        <input type="number" name="roll" placeholder="Faculty ID" required>
+        <input type="number" name="roll" placeholder="Roll No." required>
             </span>
             </div>
         </div>
+
+        <br><br>
 
         <!--reviewid-->
         <div class="line">
@@ -42,6 +57,8 @@
             </div>
         </div>
 
+        <br><br>
+
         <div class="line">
         <label for="pid">Project ID </label>
         <div>
@@ -50,6 +67,8 @@
             </span>
             </div>
         </div>
+
+        <br><br>
 
         <!--Year-->
         <div class="line">
@@ -61,6 +80,8 @@
             </div>
         </div>
 
+        <br><br>
+
         <div class="line">
         <label for="mks1">Marks awarded by first faculty </label>
         <div>
@@ -69,6 +90,8 @@
             </span>
             </div>
         </div>
+
+        <br><br>
 
         <div class="line">
         <label for="mks2">Marks awarded by second faculty </label>
@@ -79,6 +102,8 @@
             </div>
         </div>
 
+        <br><br>
+
         <div class="line">
         <label for="mks3">Marks awarded by third faculty </label>
         <div>
@@ -87,6 +112,8 @@
             </span>
             </div>
         </div>
+
+        <br><br>
 
         <div class="line">
         <label for="mks4">Marks awarded by fourth faculty </label>
@@ -97,11 +124,15 @@
             </div>
         </div>
 
+        <br><br>
+
         <!--Submit-->
         <div style="text-align:center;">
         <input type="submit" name = "button" value="Submit">
         <input type="reset" name = "button" value="Reset">
         </div>
+
+        <br><br>
         
         </form>
 	</div>

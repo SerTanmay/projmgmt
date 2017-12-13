@@ -9,7 +9,7 @@
     <meta name="author" content="">
     <!--<link rel="icon" href="bootstrap-3.3.7/docs/favicon.ico">-->
 
-    <title>Review Details Form</title>
+    <title>Review Marks</title>
 
     <!-- Bootstrap core CSS -->
     <!--<link href="bootstrap-3.3.7/dist/css/bootstrap.min.css" rel="stylesheet">-->
@@ -23,55 +23,64 @@
 		
 <?php
 
-    /*
-        session_start();
-        
-        if($_SESSION['name']=="")
-        {
-            header("Location: welcome.php");
-        }
-        */
+    include "sessionheader.php";
         
     include "header.php";
 	
+    $revno=$_POST['revno'];
     $roll=$_POST['roll'];
     $rcid=$_POST['rcid'];
     $year=$_POST['year'];
-    $mks1=$_POST['mks1'];
-    $mks2=$_POST['mks2'];
-    $mks3=$_POST['mks3'];
-    $mks4=$_POST['mks4'];
+
+    $mks = array();
+    $mks[0]=NULL;
+    $mks[1]=$_POST['mks1'];
+    $mks[2]=$_POST['mks2'];
+    $mks[3]=$_POST['mks3'];
+    $mks[4]=$_POST['mks4'];
 
     $count=0;
-    if(isset($mks1)){
-        $count++;
+    for($i=1; $i<=4; $i++)
+    {
+        if($mks[$i] != ""){
+            $count++;
+        }
+        else{
+            $mks[$i] = 0;
+        }
     }
-    else{
-        $mks1 = 0;
-    }
-    if(isset($mks2)){
-        $count++;
-    }
-    else{
-        $mks2 = 0;
-    }
-    if(isset($mks3)){
-        $count++;
-    }
-    else{
-        $mks3 = 0;
-    }if(isset($mks4)){
-        $count++;
-    }
-    else{
-        $mks4 = 0;
+    
+    //Test to see values
+    for($i=1; $i<=4; $i++)
+        echo $mks[$i]."<br>";
+    
+    //Finding sum
+    $mkssum=0;
+    for($i=1; $i<=4; $i++){
+        $mkssum = $mkssum + $mks[$i];
     }
 
-    $avgmks1 = ($mks1 + $mks2 + $mks3 + $mks4) / $count;
+    $avgmks = $mkssum / $count;
 
-    $ins =  "UPDATE student_mks 
-            SET avgmks1='$avgmks1'
-            WHERE roll_no='$roll'";
+    if($revno == 1)
+    {
+        $ins = "UPDATE student_mks 
+                SET avgmks1='$avgmks'
+                WHERE roll_no='$roll'";
+    }
+    if($revno == 2)
+    {
+        $ins = "UPDATE student_mks 
+                SET avgmks2='$avgmks'
+                WHERE roll_no='$roll'";
+    }
+    if($revno == 3)
+    {
+        $ins = "UPDATE student_mks 
+                SET avgmks3='$avgmks'
+                WHERE roll_no='$roll'";
+    }
+
         
         $q=mysqli_query($dbcon,$ins);
         if (!$q) 

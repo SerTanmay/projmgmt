@@ -9,7 +9,7 @@
     <meta name="author" content="">
     
 
-    <title>Faculty Login Menu</title>
+    <title>Faculty Menu</title>
 
     <style>
         body {
@@ -42,7 +42,7 @@
         <!--<li><a href="updatebooks.html">Update student details</a></li>
         <li><a href="updatebooks.html">Update faculty details</a></li>
         <li><a href="updatebooks.html">Update faculty details</a></li>-->
-        <li><a href="revmksinsmenu.php">Enter Review Marks</a></li>
+        <li><a href="revmksinsform.php">Enter Review Marks</a></li>
         <li><a href="timetable.php">Review Time Table</a></li>
         <!--<li><a href="revmksinsform.php">Enter Review Marks</a></li>-->
     </ol>
