@@ -5,10 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <meta name="description" content="Form for HOD login">
+    <meta name="description" content="Form for Faculty login">
     <meta name="author" content="">
       
-    <title>HOD Login</title>
+    <title>Faculty Login</title>
   </head>
 
 <body>
@@ -27,7 +27,7 @@
     $username=$_POST['user_name']; 
     $password=$_POST['password'];
 
-    $sql="SELECT * FROM hod WHERE faculty_id='$username' and password='$password'";
+    $sql="SELECT * FROM faculty_login WHERE faculty_id='$username' and password='$password'";
     $result=mysqli_query($dbcon,$sql);
     if (!$result) {
         echo '<div class="alert alert-danger" role="alert">';
@@ -51,13 +51,13 @@
         echo '<div class="alert alert-success" id="success" role="alert">';
         echo "<strong>Login Successful!</strong>";
         echo "<br></div>";
-        header('Location: hodloginmenu.php');
+        header('Location: facultyloginmenu.php');
     }
     else
     {
         echo '<div class="alert alert-danger" role="alert">';
         echo "<strong>Wrong Username or Password</strong>";
-        echo ' <a href="hodloginform.php">Try again</a></div>';
+        echo ' <a href="facultyloginform.php">Try again</a></div>';
         return false;
     }
 ?>

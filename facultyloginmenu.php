@@ -9,7 +9,7 @@
     <meta name="author" content="">
     
 
-    <title>HOD Login Menu</title>
+    <title>Faculty Login Menu</title>
 
     <style>
         body {
@@ -29,27 +29,20 @@
     <body>
     
     <?php
-        /*
-        session_start();
         
-        if($_SESSION['name']=="")
-        {
-            header("Location: hodloginform.php");
-        }
-        */
+        include "sessionheader.php";
+        
         include "header.php";
     ?>
 
-    <h1>Review Marks Insertion:</h1><br>
+    <h1>Faculty Options:</h1><br>
     <ol>
-        <li><a href="rev1form.php">Review 1</a></li>
-        <li><a href="rev2form.php">Review 2</a></li>
-        <li><a href="rev3form.php">Review 3</a></li>
+        <li><a href="studentinsform.php">Add student</a></li>
+        <li><a href="projinsform.php">Add project</a></li>
         <!--<li><a href="updatebooks.html">Update student details</a></li>
         <li><a href="updatebooks.html">Update faculty details</a></li>
         <li><a href="updatebooks.html">Update faculty details</a></li>-->
-        <li><a href="reviewinsform.php">Create Review committee</a></li>
-        <li><a href="revdetinsform.php">Create Review Schedule</a></li>
+        <li><a href="revmksinsmenu.php">Enter Review Marks</a></li>
         <li><a href="timetable.php">Review Time Table</a></li>
         <!--<li><a href="revmksinsform.php">Enter Review Marks</a></li>-->
     </ol>

@@ -29,14 +29,8 @@
     <body>
     
     <?php
-        /*
-        session_start();
         
-        if($_SESSION['name']=="")
-        {
-            header("Location: hodloginform.php");
-        }
-        */
+        include "sessionheader.php";
         include "header.php";
     ?>
 
@@ -48,7 +42,7 @@
         <!--<li><a href="updatebooks.html">Update student details</a></li>
         <li><a href="updatebooks.html">Update faculty details</a></li>
         <li><a href="updatebooks.html">Update faculty details</a></li>-->
-        <li><a href="reviewinsform.php">Create Review committee</a></li>
+        <li><a href="revcominsform.php">Create Review committee</a></li>
         <li><a href="revdetinsform.php">Create Review Schedule</a></li>
         <li><a href="timetable.php">Review Time Table</a></li>
         <!--<li><a href="revmksinsform.php">Enter Review Marks</a></li>-->

@@ -7,16 +7,21 @@
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <meta name="description" content="Form for student details">
     <meta name="author" content="">
+
+    <link rel="stylesheet" type="text/css" href="form.css">
       
-    <title>Review Form</title>
+    <title>Review Committee Creation Form</title>
   </head>
 
     <body>
     <?php
+
+        include "sessionheader.php";
+
         include "header.php";
     ?>
     <div class="container">
-    <form action="projins.php" method="POST" class="form-signin" role="form" enctype="multipart/form-data" onsubmit="return validateForm()">
+    <form action="revcomins.php" method="POST" class="form-signin" role="form" enctype="multipart/form-data" onsubmit="return validateForm()">
         
         <!--reviewid-->
         <div class="line">
@@ -28,12 +33,20 @@
             </div>
         </div>
     
-        <!--pID-->
         <div class="line">
-        <label for="pid">Faculty ID </label>
+        <label for="fid">Faculty ID </label>
         <div>
         <span>
-        <input type="number" name="pid" placeholder="Project ID" required>
+        <input type="number" name="fid" placeholder="Faculty ID" required>
+            </span>
+            </div>
+        </div>
+
+        <div class="line">
+        <label for="year">Year</label>
+        <div>
+        <span>
+        <input type="number" name="year" placeholder="Year" required>
             </span>
             </div>
         </div>

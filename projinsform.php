@@ -8,19 +8,20 @@
     <meta name="description" content="Form for student details">
     <meta name="author" content="">
       
+    <style>
+        
+    </style>
+    
+    <link rel="stylesheet" type="text/css" href="form.css">
+
     <title>Project Details Form</title>
   </head>
 
     <body>
     <?php
-        /*
-        session_start();
-        
-        if($_SESSION['name']=="")
-        {
-            header("Location: hodloginform.php");
-        }
-        */
+
+        include "sessionheader.php";
+
         include "header.php";
     ?>
     <div class="container">

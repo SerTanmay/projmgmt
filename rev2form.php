@@ -7,10 +7,8 @@
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <meta name="description" content="Form for student details">
     <meta name="author" content="">
-
-    <!--<link rel="stylesheet" type="text/css" href="form.css">-->
       
-    <title>Review 1 Marks</title>
+    <title>Review 2 Marks</title>
   </head>
 
     <body>
@@ -18,9 +16,9 @@
         include "header.php";
     ?>
     <div class="container">
-    <h3>Review 1: Marks</h3>
+    <h3>Review 2: Marks</h3>
     <h5>Enter details</h5>
-    <form action="rev1.php" method="POST" class="form-signin" role="form" enctype="multipart/form-data" onsubmit="return validateForm()">
+    <form action="rev2.php" method="POST" class="form-signin" role="form" enctype="multipart/form-data" onsubmit="return validateForm()">
         
         
         <div class="line">
@@ -35,9 +33,9 @@
         <!--reviewid-->
         <div class="line">
         <label for="rcid">Review Committee ID </label>
-            <div>
-            <span>
-                <input type="number" name="rcid" placeholder="Review Committee ID" required>
+        <div>
+        <span>
+        <input type="number" name="rcid" placeholder="Review Committee ID" required>
             </span>
             </div>
         </div>

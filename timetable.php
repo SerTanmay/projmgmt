@@ -5,81 +5,23 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <meta name="description" content="Generates calendar and dates of alternate fridays. This is the home page.">
-    <meta name="author" content="Tanmay Pereira Naik">
+    <meta name="description" content="Generates timetable">
+    <meta name="author" content="">
     <meta name="keywords" content="home">
     
-<title>Review Time Table</title>
-<!--
-<style>
-#main
-{
-   margin:auto;
-   width:400px;
-}
-#forward
-{  position: absolute;
-   margin-top: 00px;
-   margin-left: 1250px;
-}
-#back
-{  position: absolute;
-   margin-top: 00px;
-   margin-left: 50px;
-}
-#heading
-{
-   font-size:30px;
-   text-align:center;
-}
-th,td
-{
-   margin:0;
-   width: 10%;
-   table-layout: fixed;
-   text-align: center;
-   border collapse: colapse;
-   outline: 1px solid black;
-}
-#booked
-{
- font-size:10px;
-}
+    <title>Review Time Table</title>
+    <style>
 
-</style>
--->
+    </style>
 
-<style>
-table, td, th {    
-    border: 1px solid #ddd;
-    text-align: center;
-}
-
-table {
-    border-collapse: collapse;
-    width: 120%;
-}
-
-th, td {
-    padding: 15px;
-}
-</style>
+    <link rel="stylesheet" type="text/css" href="table.css">
     
 </head>
     
 <body>
-<!--
-    <img id="line" src="newheader.png" width="100%" height="250" align="center">
--->    
+
 <?php
-    /*
-    session_start();
-    
-	if($_SESSION['name']=="")
-    {
-        header("Location: welcome.php");
-    }
-	*/
+    include "sessionheader.php";
     include "header.php";
 	
     echo "<br>";
@@ -110,10 +52,11 @@ echo "<th>Lab</th>";
 echo "<th>Date</th>";
 echo "</tr>";
 
-
 $sql = "SELECT * FROM review_details revdet
         ORDER BY rdate";
+
 $result = mysqli_query($dbcon,$sql);
+
 while($row = mysqli_fetch_array($result))
 {
     $rcid = $row['rcid'];
@@ -127,7 +70,7 @@ while($row = mysqli_fetch_array($result))
     echo '<tr>';
 	
     echo '<td>';
-	echo $rcid;
+    echo $rcid;
     echo '</td>';
 
     echo '<td>';
@@ -135,20 +78,23 @@ while($row = mysqli_fetch_array($result))
     echo '</td>';
 
     echo '<td>';
-    echo $rcid;
+    echo $rtime;
     echo '</td>';
 
     echo '<td>';
-    echo $rcid;
+    echo $rlab;
     echo '</td>';
 
-    echo '</tr>';
-       
+    echo '<td>';
+    echo $rdate;
+    echo '</td>';
+
+    echo '</tr>';     
 }
 
 
 echo "</table>";
-    
+/*   
 //echo'<a href="inc.php" id="forward" ><img src="forward.jpg" width="80" height="50"></a>';
 echo "<br>";
 echo "<br>";
@@ -161,6 +107,7 @@ echo "<br>";
 echo "<div style='text-align:right'>";
 echo '<a href="spbookinc.php" >Next year</a>';
 echo "</div>";
+*/
 ?>
     
 </body>

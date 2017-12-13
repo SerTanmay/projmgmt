@@ -6,7 +6,7 @@
 
 session_start();
 //include "header.php";    
-include 'hodloginform.php';
+include 'welcome.php';
  
 
 ?>

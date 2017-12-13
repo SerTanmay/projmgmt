@@ -7,20 +7,18 @@
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <meta name="description" content="Form for student details">
     <meta name="author" content="">
+
+    <link rel="stylesheet" type="text/css" href="form.css">
       
     <title>Review Details Form</title>
+
   </head>
 
-    <body>
+  <body>
     <?php
-        /*
-        session_start();
         
-        if($_SESSION['name']=="")
-        {
-            header("Location: hodloginform.php");
-        }
-        */
+        //include "sessionheader.php";
+
         
         include "header.php";
     ?>

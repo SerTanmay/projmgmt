@@ -9,7 +9,7 @@
     <meta name="author" content="">
     <!--<link rel="icon" href="bootstrap-3.3.7/docs/favicon.ico">-->
 
-    <title>Review Details Form</title>
+    <title>Review Committee Creation</title>
 
     <!-- Bootstrap core CSS -->
     <!--<link href="bootstrap-3.3.7/dist/css/bootstrap.min.css" rel="stylesheet">-->
@@ -22,56 +22,16 @@
     <body>
 		
 <?php
-
-    /*
-        session_start();
-        
-        if($_SESSION['name']=="")
-        {
-            header("Location: welcome.php");
-        }
-        */
         
     include "header.php";
 	
-    $roll=$_POST['roll'];
-    $rcid=$_POST['rcid'];
+    $rcid=$_POST['reid'];
+    $fid=$_POST['fid'];
     $year=$_POST['year'];
-    $mks1=$_POST['mks1'];
-    $mks2=$_POST['mks2'];
-    $mks3=$_POST['mks3'];
-    $mks4=$_POST['mks4'];
-
-    $count=0;
-    if(isset($mks1)){
-        $count++;
-    }
-    else{
-        $mks1 = 0;
-    }
-    if(isset($mks2)){
-        $count++;
-    }
-    else{
-        $mks2 = 0;
-    }
-    if(isset($mks3)){
-        $count++;
-    }
-    else{
-        $mks3 = 0;
-    }if(isset($mks4)){
-        $count++;
-    }
-    else{
-        $mks4 = 0;
-    }
-
-    $avgmks1 = ($mks1 + $mks2 + $mks3 + $mks4) / $count;
-
-    $ins =  "UPDATE student_mks 
-            SET avgmks1='$avgmks1'
-            WHERE roll_no='$roll'";
+       
+    
+    $ins="INSERT INTO faculty_review (rcid, faculty_id, year)
+	VALUES ('$rcid', '$fid', '$year')";
         
         $q=mysqli_query($dbcon,$ins);
         if (!$q) 
@@ -82,11 +42,12 @@
             echo "</div>";
             exit(); //Exiting upon error
         }
+
         else
         {
             echo "<div style='text-align:center;'>";
             echo '<div class="alert alert-success" id="success" role="alert">';
-            echo "<strong>Review 1 Marks entered.<br> Your database has been updated succesfully.</strong>";
+            echo '<strong>New review inserted.<br></strong><a href="revcominsform.php">Enter</a> another faculty in review Committee';
             echo "<br></div>";
             echo "</div>";
         }
