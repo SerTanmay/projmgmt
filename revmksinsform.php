@@ -135,6 +135,15 @@
         <br><br>
         
         </form>
+        <div style='text-align: center;'>
+            Note:
+            <div style='text-align: center;'>
+            <ul>
+                <li>Review 1 is out of 10 marks</li>
+                <li>Review 2 is out of 10 marks</li>
+                <li>Review 3 is out of 5 marks</li>
+            </ul>
+            </div>
 	</div>
   </body>
 </html>
