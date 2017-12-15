@@ -35,17 +35,35 @@ echo "Student Marksheet";
 echo "</h2>";
 echo "</div>";
     
-//First row of table: headings
-echo "<table width='80%' align='center'>";
-
-
-
 $sql = "SELECT * FROM student stu
         JOIN student_marks stmks
         ON stu.roll_no=stmks.roll_no
         WHERE roll_no='$roll'";
 
 $result = mysqli_query($dbcon,$sql);
+
+    if(mysqli_num_rows($result)==0)
+    {
+        echo "No data found";                           //no persons found
+    }
+    else
+    {
+        echo "<table width='100%' align='center'>";
+        
+        /*
+        echo "<tr>";
+        echo "<th>Name</th>";
+        echo "<th>Roll No.</th>";
+        echo "<th>Address</th>";
+        echo "<th>Gender</th>";
+        echo "<th>Date of Birth</th>";
+        echo "<th>Contact No.</th>";
+        echo "<th>e-mail</th>";
+        echo "<th>Father's Name</th>";
+        echo "<th>Mother's Name</th>";
+        echo "<th>Marks</th>";
+        echo "</tr>";
+        */
 
 $row = mysqli_fetch_array($result)
 {
@@ -54,55 +72,88 @@ $row = mysqli_fetch_array($result)
     $gender = $row['gender'];
     $dob = $row['date_of_birth'];
     $phone = $row['phone_no'];
-    $phone = $row['phone_no'];
-    $phone = $row['phone_no'];
-    $phone = $row['phone_no'];
-    $phone = $row['phone_no'];
-    $phone = $row['phone_no'];
-    
+    $email = $row['email_id'];
+    $fname = $row['fathers_name'];
+    $mname = $row['mothers_name'];
+    $marks = $row['Imarks'];
 
     //creating table rows
     echo '<tr>';
-	
+    echo "<th>Name</th>";
     echo '<td>';
-    echo $rcid;
+    echo $name;
     echo '</td>';
+    echo '</tr>';
+
+    echo '<tr>';
+    echo "<th>Roll No.</th>";
+    echo '<td>';
+    echo $roll;
+    echo '</td>';
+    echo '</tr>';
+
+    echo '<tr>';
+    echo "<th>Address</th>";
+    echo '<td>';
+    echo $addr;
+    echo '</td>';
+    echo '</tr>';
+
+    echo '<tr>';
+    echo "<th>Gender</th>";
+    echo '<td>';
+    echo $gender;
+    echo '</td>';
+    echo '</tr>';
+
+    echo '<tr>';
 
     echo '<td>';
-    echo $rpid;
+    echo "<th>Date of Birth</th>";
+    echo $dob;
     echo '</td>';
+    echo '</tr>';
+
+    echo '<tr>';
 
     echo '<td>';
-    echo $rtime;
+    echo "<th>Contact No.</th>";
+    echo $phone;
     echo '</td>';
+    echo '</tr>';
 
+    echo '<tr>';
+    echo "<th>e-mail</th>";
     echo '<td>';
-    echo $rlab;
+    echo $email;
     echo '</td>';
+    echo '</tr>';
 
+    echo '<tr>';
+    echo "<th>Father's Name</th>";
     echo '<td>';
-    echo $rdate;
+    echo $fname;
     echo '</td>';
+    echo '</tr>';
 
-    echo '</tr>';     
+    echo '<tr>';
+    echo "<th>Mother's Name</th>";
+    echo '<td>';
+    echo $mname;
+    echo '</td>';
+    echo '</tr>';
+
+    echo '<tr>';
+    echo "<th>Marks</th>";
+    echo '<td>';
+    echo $marks;
+    echo '</td>';
+    echo '</tr>';
+    
 }
 
-
 echo "</table>";
-/*   
-//echo'<a href="inc.php" id="forward" ><img src="forward.jpg" width="80" height="50"></a>';
-echo "<br>";
-echo "<br>";
 
-
-    echo "<div style='text-align:left'>";
-    echo '<a href="spbookdec.php" >Previous year</a>';
-    echo "</div>";
-
-echo "<div style='text-align:right'>";
-echo '<a href="spbookinc.php" >Next year</a>';
-echo "</div>";
-*/
 ?>
     
 </body>
