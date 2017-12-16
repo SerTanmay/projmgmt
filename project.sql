@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Dec 13, 2017 at 07:51 PM
+-- Generation Time: Dec 16, 2017 at 07:35 PM
 -- Server version: 10.1.26-MariaDB
 -- PHP Version: 7.1.8
 
@@ -146,9 +146,10 @@ INSERT INTO `proj` (`pid`, `pdescr`, `domain`, `tech_used`, `year`, `rcid`, `fac
 --
 
 CREATE TABLE `review` (
+  `faculty_id` int(11) NOT NULL,
   `rcid` int(11) NOT NULL COMMENT 'review committee id',
+  `roll_no` int(11) NOT NULL COMMENT 'student roll no.',
   `marks` int(11) NOT NULL,
-  `roll_no` int(11) NOT NULL,
   `pid` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -160,11 +161,18 @@ CREATE TABLE `review` (
 
 CREATE TABLE `review_details` (
   `rcid` int(11) NOT NULL,
-  `date` int(11) NOT NULL,
-  `time` int(11) NOT NULL,
-  `lab` int(11) NOT NULL,
+  `rdate` date NOT NULL,
+  `rtime` time NOT NULL,
+  `lab` varchar(25) NOT NULL,
   `pid` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `review_details`
+--
+
+INSERT INTO `review_details` (`rcid`, `rdate`, `rtime`, `lab`, `pid`) VALUES
+(2, '2017-12-18', '13:00:00', 'MP', 1);
 
 -- --------------------------------------------------------
 
@@ -214,7 +222,7 @@ CREATE TABLE `student_mks` (
 --
 
 INSERT INTO `student_mks` (`roll_no`, `pid`, `faculty_id`, `avgmks1`, `avgmks2`, `avgmks3`, `Imarks`) VALUES
-(141205012, 2, 3, 9, NULL, NULL, NULL);
+(141205012, 2, 3, 9, 8, NULL, 17);
 
 --
 -- Indexes for dumped tables
@@ -227,16 +235,30 @@ ALTER TABLE `faculty`
   ADD PRIMARY KEY (`faculty_id`);
 
 --
+-- Indexes for table `faculty_login`
+--
+ALTER TABLE `faculty_login`
+  ADD KEY `faculty_id` (`faculty_id`);
+
+--
+-- Indexes for table `hod`
+--
+ALTER TABLE `hod`
+  ADD KEY `faculty_id` (`faculty_id`);
+
+--
 -- Indexes for table `proj`
 --
 ALTER TABLE `proj`
-  ADD PRIMARY KEY (`pid`);
+  ADD PRIMARY KEY (`pid`),
+  ADD KEY `faculty_id` (`faculty_id`);
 
 --
 -- Indexes for table `review`
 --
 ALTER TABLE `review`
-  ADD PRIMARY KEY (`rcid`);
+  ADD KEY `roll_no` (`roll_no`),
+  ADD KEY `faculty_id` (`faculty_id`);
 
 --
 -- Indexes for table `review_details`
@@ -249,6 +271,47 @@ ALTER TABLE `review_details`
 --
 ALTER TABLE `student`
   ADD PRIMARY KEY (`roll_no`);
+
+--
+-- Indexes for table `student_mks`
+--
+ALTER TABLE `student_mks`
+  ADD KEY `roll_no` (`roll_no`);
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `faculty_login`
+--
+ALTER TABLE `faculty_login`
+  ADD CONSTRAINT `faculty_login_ibfk_1` FOREIGN KEY (`faculty_id`) REFERENCES `faculty` (`faculty_id`);
+
+--
+-- Constraints for table `hod`
+--
+ALTER TABLE `hod`
+  ADD CONSTRAINT `hod_ibfk_1` FOREIGN KEY (`faculty_id`) REFERENCES `faculty` (`faculty_id`);
+
+--
+-- Constraints for table `proj`
+--
+ALTER TABLE `proj`
+  ADD CONSTRAINT `proj_ibfk_1` FOREIGN KEY (`faculty_id`) REFERENCES `faculty` (`faculty_id`);
+
+--
+-- Constraints for table `review`
+--
+ALTER TABLE `review`
+  ADD CONSTRAINT `review_ibfk_1` FOREIGN KEY (`roll_no`) REFERENCES `student` (`roll_no`),
+  ADD CONSTRAINT `review_ibfk_2` FOREIGN KEY (`faculty_id`) REFERENCES `faculty` (`faculty_id`);
+
+--
+-- Constraints for table `student_mks`
+--
+ALTER TABLE `student_mks`
+  ADD CONSTRAINT `student_mks_ibfk_1` FOREIGN KEY (`roll_no`) REFERENCES `student` (`roll_no`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
