@@ -5,7 +5,7 @@ table, td, th {
 
 table {
     border-collapse: collapse;
-    width: 120%;
+    width: 100%;
 }
 
 th, td {

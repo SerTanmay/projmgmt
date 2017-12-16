@@ -23,15 +23,18 @@
 		
 <?php
         
+    include "sessionheader.php";
     include "header.php";
 	
-    $reid=$_POST['reid'];
-    $rep=$_POST['rep'];
-    $pid=$_POST['pid'];
+    $fid = $_POST['fid'];
+    $rcid = $_POST['rcid'];
+    $roll = $_POST['roll'];
+    $mks = $_POST['mks'];
+    $pid = $_POST['pid'];
        
     
-    $ins="INSERT INTO review (reid, report, pid)
-	VALUES ('$reid', '$rep', '$pid')";
+    $ins="INSERT INTO review (faculty_id, rcid, roll_no, mks, pid)
+	VALUES ('$fid', '$rcid', '$roll', '$mks', '$pid')";
         
         $q=mysqli_query($dbcon,$ins);
         if (!$q) 

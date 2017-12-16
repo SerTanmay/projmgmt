@@ -11,10 +11,10 @@
     <link rel="stylesheet" type="text/css" href="form.css">
 
       
-    <title>Faculty Review Form</title>
+    <title>Create Review Committee: Form</title>
   </head>
 
-    <body>
+  <body>
     <?php
 
         //include "sessionheader.php";
@@ -36,23 +36,42 @@
 
         <!--reviewid-->
         <div class="line">
-        <label for="reid">Review ID </label>
+        <label for="rcid">Review Committee ID </label>
         <div>
         <span>
-        <input type="number" name="reid" placeholder="Review ID" required>
+        <input type="number" name="rcid" placeholder="Review ID" required>
             </span>
             </div>
         </div>
 
-        <!--Year-->
         <div class="line">
-        <label for="year">Year </label>
+        <label for="roll">Student's Roll No. </label>
         <div>
         <span>
-        <input type="number" name="year" placeholder="Year" required>
+        <input type="number" name="roll" placeholder="Roll No." required>
             </span>
             </div>
         </div>
+
+        <div class="line">
+        <label for="mks">Enter marks awarded </label>
+        <div>
+        <span>
+        <input type="number" name="mks" placeholder="Marks awarded" required>
+            </span>
+            </div>
+        </div>
+
+        <div class="line">
+        <label for="pid">Project ID </label>
+        <div>
+        <span>
+        <input type="number" name="pid" placeholder="Project ID" required>
+            </span>
+            </div>
+        </div>
+
+        <br><br>
 
         <!--Submit-->
         <div style="text-align:center;">

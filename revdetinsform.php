@@ -35,6 +35,8 @@
             </span>
             </div>
         </div>
+
+        <br><br>
         
         <div class="line">
         <label for="date">Date of Review</label>
@@ -44,6 +46,8 @@
             </span>
             </div>
         </div>
+        <br><br>
+
 
         <div class="line">
         <label for="time">Time of Review </label>
@@ -53,6 +57,18 @@
             </span>
             </div>
         </div>
+        <br><br>
+
+        <div class="line">
+        <label for="lab">Lab </label>
+        <div>
+        <span>
+        <input type="text" name="lab" placeholder="Lab" required>
+            </span>
+            </div>
+        </div>
+        <br><br>
+
         
         <div class="line">
         <label for="pid">Project ID </label>
@@ -62,6 +78,8 @@
             </span>
             </div>
         </div>
+        <br><br>
+
         
         <div style="text-align:center;">
         <input type="submit" name = "button" value="Submit">

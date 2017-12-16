@@ -21,7 +21,7 @@
 <body>
 
 <?php
-    include "sessionheader.php";
+    //include "sessionheader.php";
     include "header.php";
 	
     echo "<br>";
@@ -29,27 +29,31 @@
     $roll=$_POST['roll'];
     $name=$_POST['name'];
    
-echo "<div align='center'>";
-echo "<h2>";
-echo "Student Marksheet";
-echo "</h2>";
-echo "</div>";
-    
-$sql = "SELECT * FROM student stu
-        JOIN student_marks stmks
-        ON stu.roll_no=stmks.roll_no
-        WHERE roll_no='$roll'";
+    echo "<div align='center'>";
+    echo "<h2>";
+    echo "Student Marksheet";
+    echo "</h2>";
+    echo "</div>";
+        
+    $sql = "SELECT * FROM student stu
+            JOIN student_mks stmks
+            ON stu.roll_no=stmks.roll_no
+            WHERE stu.roll_no='$roll'";
 
-$result = mysqli_query($dbcon,$sql);
+    $result = mysqli_query($dbcon,$sql);
 
-    if(mysqli_num_rows($result)==0)
+    if(!($result))
     {
         echo "No data found";                           //no persons found
+        echo "<div style='text-align:center;'>";
+        echo '<div class="alert alert-danger" role="alert">';
+        echo "<strong>Error during retrieval:</strong></div>".mysqli_errno($dbcon)." ".mysqli_error($dbcon);
+        echo "</div>";
+        exit(); //Exiting upon error
+
     }
     else
-    {
-        echo "<table width='100%' align='center'>";
-        
+    {       
         /*
         echo "<tr>";
         echo "<th>Name</th>";
@@ -65,94 +69,95 @@ $result = mysqli_query($dbcon,$sql);
         echo "</tr>";
         */
 
-$row = mysqli_fetch_array($result)
-{
-    $name = $row['name'];
-    $addr = $row['address'];
-    $gender = $row['gender'];
-    $dob = $row['date_of_birth'];
-    $phone = $row['phone_no'];
-    $email = $row['email_id'];
-    $fname = $row['fathers_name'];
-    $mname = $row['mothers_name'];
-    $marks = $row['Imarks'];
+        $row = mysqli_fetch_array($result);
 
-    //creating table rows
-    echo '<tr>';
-    echo "<th>Name</th>";
-    echo '<td>';
-    echo $name;
-    echo '</td>';
-    echo '</tr>';
+        $name = $row['name'];
+        $addr = $row['address'];
+        $gender = $row['gender'];
+        $dob = $row['date_of_birth'];
+        $phone = $row['phone_no'];
+        $email = $row['email_id'];
+        $fname = $row['fathers_name'];
+        $mname = $row['mothers_name'];
+        $marks = $row['Imarks'];
 
-    echo '<tr>';
-    echo "<th>Roll No.</th>";
-    echo '<td>';
-    echo $roll;
-    echo '</td>';
-    echo '</tr>';
+        //creating table
 
-    echo '<tr>';
-    echo "<th>Address</th>";
-    echo '<td>';
-    echo $addr;
-    echo '</td>';
-    echo '</tr>';
+        echo '<table>';
 
-    echo '<tr>';
-    echo "<th>Gender</th>";
-    echo '<td>';
-    echo $gender;
-    echo '</td>';
-    echo '</tr>';
+        echo '<tr>';
+        echo "<th>Name</th>";
+        echo '<td>';
+        echo $name;
+        echo '</td>';
+        echo '</tr>';
 
-    echo '<tr>';
+        echo '<tr>';
+        echo "<th>Roll No.</th>";
+        echo '<td>';
+        echo $roll;
+        echo '</td>';
+        echo '</tr>';
 
-    echo '<td>';
-    echo "<th>Date of Birth</th>";
-    echo $dob;
-    echo '</td>';
-    echo '</tr>';
+        echo '<tr>';
+        echo "<th>Address</th>";
+        echo '<td>';
+        echo $addr;
+        echo '</td>';
+        echo '</tr>';
 
-    echo '<tr>';
+        echo '<tr>';
+        echo "<th>Gender</th>";
+        echo '<td>';
+        echo $gender;
+        echo '</td>';
+        echo '</tr>';
 
-    echo '<td>';
-    echo "<th>Contact No.</th>";
-    echo $phone;
-    echo '</td>';
-    echo '</tr>';
+        echo '<tr>';
+        echo "<th>Date of Birth</th>";
+        echo '<td>';
+        echo $dob;
+        echo '</td>';
+        echo '</tr>';
 
-    echo '<tr>';
-    echo "<th>e-mail</th>";
-    echo '<td>';
-    echo $email;
-    echo '</td>';
-    echo '</tr>';
+        echo '<tr>';
+        echo "<th>Contact No.</th>";
+        echo '<td>';
+        echo $phone;
+        echo '</td>';
+        echo '</tr>';
 
-    echo '<tr>';
-    echo "<th>Father's Name</th>";
-    echo '<td>';
-    echo $fname;
-    echo '</td>';
-    echo '</tr>';
+        echo '<tr>';
+        echo "<th>e-mail</th>";
+        echo '<td>';
+        echo $email;
+        echo '</td>';
+        echo '</tr>';
 
-    echo '<tr>';
-    echo "<th>Mother's Name</th>";
-    echo '<td>';
-    echo $mname;
-    echo '</td>';
-    echo '</tr>';
+        echo '<tr>';
+        echo "<th>Father's Name</th>";
+        echo '<td>';
+        echo $fname;
+        echo '</td>';
+        echo '</tr>';
 
-    echo '<tr>';
-    echo "<th>Marks</th>";
-    echo '<td>';
-    echo $marks;
-    echo '</td>';
-    echo '</tr>';
-    
-}
+        echo '<tr>';
+        echo "<th>Mother's Name</th>";
+        echo '<td>';
+        echo $mname;
+        echo '</td>';
+        echo '</tr>';
 
-echo "</table>";
+        echo '<tr>';
+        echo "<th>Marks</th>";
+        echo '<td>';
+        echo $marks;
+        echo '</td>';
+        echo '</tr>';
+
+        echo '</table>';
+
+    }
 
 ?>
     

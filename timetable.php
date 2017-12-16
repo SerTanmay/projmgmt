@@ -42,7 +42,7 @@ echo "</h2>";
 echo "</div>";
     
 //First row of table: headings
-echo "<table width='80%' align='center'>";
+echo "<table>";
 
 echo "<tr>";
 echo "<th>Review Committee ID</th>";

@@ -20,7 +20,7 @@
   <body>
     <?php
 
-        include "sessionheader.php";
+        //include "sessionheader.php";
 
         include "header.php";
     ?>
@@ -36,6 +36,8 @@
             </span>
             </div>
         </div>
+
+        <br><br>
         
         <div class="line">
         <label for="name">Name </label>
@@ -45,6 +47,8 @@
             </span>
             </div>
         </div>
+
+        <br><br>
         
         <!--Submit-->
         <div style="text-align:center;">

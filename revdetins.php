@@ -25,20 +25,21 @@
         
     include "header.php";
 	
-    $reid=$_POST['reid'];
+    $rcid=$_POST['reid'];
     $date=$_POST['date'];
     $time=$_POST['time'];
+    $lab=$_POST['lab'];
     $pid=$_POST['pid'];
         
-    $ins="INSERT INTO review_details (reid, rdate, rtime, pid)
-	VALUES ('$reid', '$date', '$time', '$pid', )";
+    $ins="INSERT INTO review_details (rcid, rdate, rtime, lab, pid)
+	VALUES ('$rcid', '$date', '$time', '$lab', '$pid')";
         
         $q=mysqli_query($dbcon,$ins);
         if (!$q) 
         {
             echo "<div style='text-align:center;'>";
             echo '<div class="alert alert-danger" role="alert">';
-            printf("<strong>Erevror during insert:</strong> %s\n</div>", mysqli_errno($dbcon));
+            echo "<strong>Error during insert:</strong></div>".mysqli_errno($dbcon).' '.mysqli_error($dbcon);
             echo "</div>";
             exit(); //Exiting upon error
         }

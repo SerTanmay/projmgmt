@@ -42,9 +42,10 @@
         <!--<li><a href="updatebooks.html">Update student details</a></li>
         <li><a href="updatebooks.html">Update faculty details</a></li>
         <li><a href="updatebooks.html">Update faculty details</a></li>-->
-        <li><a href="revmksinsform.php">Enter Review Marks</a></li>
+        <!--<li><a href="reviewinsform.php">Enter Marks for Review</a></li>-->
+        <li><a href="revmksinsform.php">Enter Student's Marks for Review</a></li>
         <li><a href="timetable.php">Review Time Table</a></li>
-        <!--<li><a href="revmksinsform.php">Enter Review Marks</a></li>-->
+        <li><a href="marksheetform.php">View Student Marksheet</a></li>
     </ol>
     </body>
 </html>

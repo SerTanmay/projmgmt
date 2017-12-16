@@ -45,6 +45,7 @@
         <li><a href="revcominsform.php">Create Review committee</a></li>
         <li><a href="revdetinsform.php">Create Review Schedule</a></li>
         <li><a href="timetable.php">Review Time Table</a></li>
+        <li><a href="marksheetform.php">View Student Marksheet</a></li>
         <!--<li><a href="revmksinsform.php">Enter Review Marks</a></li>-->
     </ol>
     </body>
