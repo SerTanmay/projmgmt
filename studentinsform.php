@@ -33,6 +33,8 @@
             </div>
         </div>
         
+        <br><br>
+        
         <div class="line">
         <label for="name">Name </label>
         <div>
@@ -42,6 +44,8 @@
             </div>
         </div>
         
+        <br><br>
+        
         <div class="line">
         <label for="addr">Address </label>
         <div>
@@ -50,6 +54,8 @@
             </span>
             </div>
         </div>
+        
+        <br><br>
         
         <div class="line">
         <label for="gender">Gender</label>
@@ -64,6 +70,8 @@
         </div>
         </div>
         
+        <br><br>
+        
         <div class="line">
         <label for="dob">Date of Birth</label>
         <div>
@@ -72,6 +80,8 @@
             </span>
             </div>
         </div>
+        
+        <br><br>
         
         <div class="line">
         <label for="phone">Phone No.</label>
@@ -82,6 +92,8 @@
             </div>
         </div>
         
+        <br><br>
+        
         <div class="line">
         <label for="email">E-mail</label>
         <div>
@@ -90,6 +102,8 @@
             </span>
             </div>
         </div>
+        
+        <br><br>
         
         <div class="line">
         <label for="jyear">Joining Year</label>
@@ -100,6 +114,8 @@
             </div>
         </div>
         
+        <br><br>
+        
         <div class="line">
         <label for="fname">Father's Name</label>
         <div>
@@ -108,6 +124,8 @@
             </span>
             </div>
         </div>
+        
+        <br><br>
         
         <div class="line">
         <label for="mname">Mother's Name</label>
@@ -118,6 +136,8 @@
             </div>
         </div>
 
+        <br><br>
+        
         <!--Submit-->
         <div style="text-align:center;">
         <input type="submit" name = "button" value="Submit">

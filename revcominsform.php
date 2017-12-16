@@ -33,6 +33,8 @@
             </div>
         </div>
     
+        <br><br>
+        
         <div class="line">
         <label for="fid">Faculty ID </label>
         <div>
@@ -42,6 +44,8 @@
             </div>
         </div>
 
+        <br><br>
+        
         <div class="line">
         <label for="year">Year</label>
         <div>
@@ -51,6 +55,8 @@
             </div>
         </div>
 
+        <br><br>
+        
         <!--Submit-->
         <div style="text-align:center;">
         <input type="submit" name = "button" value="Submit">

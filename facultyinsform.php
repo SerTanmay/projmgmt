@@ -33,6 +33,8 @@
             </div>
         </div>
         
+        <br><br>
+
         <!--name-->
         <div class="line">
         <label for="name">Name </label>
@@ -42,6 +44,8 @@
             </span>
             </div>
         </div>
+
+        <br><br>
 
         <!--office Phone-->
         <div class="line">
@@ -53,6 +57,8 @@
             </div>
         </div>
         
+        <br><br>
+        
         <!--mobile Phone-->
         <div class="line">
         <label for="mphone">Mobile Phone No.</label>
@@ -63,6 +69,8 @@
             </div>
         </div>
 
+        <br><br>
+        
         <!--email-->
         <div class="line">
         <label for="email">E-mail</label>
@@ -73,6 +81,8 @@
             </div>
         </div>
 
+        <br><br>
+        
         <!--joining date-->
         <div class="line">
         <label for="jdate">Joining Date</label>
@@ -83,6 +93,8 @@
             </div>
         </div>
 
+        <br><br>
+        
         <!--Gender-->
         <div class="line">
         <label for="gender">Gender</label>
@@ -97,6 +109,8 @@
         </div>
         </div>
 
+        <br><br>
+        
         <!--DOB-->    
         <div class="line">
         <label for="dob">Date of Birth</label>
@@ -107,6 +121,8 @@
             </div>
         </div>
 
+        <br><br>
+        
         <!--teaching experience-->
         <div class="line">
         <label for="texpyrs">Teaching Experience</label>
@@ -117,6 +133,8 @@
             </div>
         </div>
 
+        <br><br>
+        
         <!--industry experience-->
         <div class="line">
         <label for="iexpyrs">Industry Experience</label>
@@ -127,6 +145,8 @@
             </div>
         </div>
 
+        <br><br>
+        
         <!--Permanent address-->
         <div class="line">
         <label for="paddr">Permanent address </label>
@@ -136,6 +156,8 @@
             </span>
             </div>
         </div>
+        
+        <br><br>
         
         <!--Local address-->
         <div class="line">
@@ -147,6 +169,8 @@
             </div>
         </div>
         
+        <br><br>
+        
         <!--UG University-->
         <div class="line">
         <label for="ug">UG University </label>
@@ -156,6 +180,8 @@
             </span>
             </div>
         </div>
+        
+        <br><br>
         
         <!--PG University-->
         <div class="line">
@@ -167,6 +193,8 @@
             </div>
         </div>
         
+        <br><br>
+        
         <!--Pan card no.-->
         <div class="line">
         <label for="pan">Pan card no.</label>
@@ -177,6 +205,8 @@
             </div>
         </div>
         
+        <br><br>
+        
         <!--Election card no.-->
         <div class="line">
         <label for="elec">Election card no.</label>
@@ -186,6 +216,8 @@
             </span>
             </div>
         </div>
+        
+        <br><br>
         
         <!--Submit-->                
         <div style="text-align:center;">

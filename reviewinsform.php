@@ -34,6 +34,8 @@
             </div>
         </div>
 
+        <br><br>
+        
         <!--reviewid-->
         <div class="line">
         <label for="rcid">Review Committee ID </label>
@@ -44,6 +46,8 @@
             </div>
         </div>
 
+        <br><br>
+        
         <div class="line">
         <label for="roll">Student's Roll No. </label>
         <div>
@@ -53,6 +57,8 @@
             </div>
         </div>
 
+        <br><br>
+        
         <div class="line">
         <label for="mks">Enter marks awarded </label>
         <div>
@@ -62,6 +68,8 @@
             </div>
         </div>
 
+        <br><br>
+        
         <div class="line">
         <label for="pid">Project ID </label>
         <div>

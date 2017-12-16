@@ -38,6 +38,8 @@
             </div>
         </div>
         
+        <br><br>
+        
         <!--projdescr-->
         <div class="line">
         <label for="pdescr">Project Description </label>
@@ -48,6 +50,8 @@
             </div>
         </div>
              
+        <br><br>
+        
         <!--domain-->
         <div class="line">
         <label for="dom">Domain </label>
@@ -57,6 +61,8 @@
             </span>
             </div>
         </div>
+        
+        <br><br>
         
         <!--Tech Used-->
         <div class="line">
@@ -68,6 +74,8 @@
             </div>
         </div>
 
+        <br><br>
+        
         <!--Year-->
         <div class="line">
         <label for="year">Year </label>
@@ -77,6 +85,8 @@
             </span>
             </div>
         </div>
+        
+        <br><br>
         
         <!--Submit-->
         <div style="text-align:center;">
