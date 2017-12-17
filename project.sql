@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Dec 16, 2017 at 07:35 PM
+-- Generation Time: Dec 17, 2017 at 02:45 PM
 -- Server version: 10.1.26-MariaDB
 -- PHP Version: 7.1.8
 
@@ -259,12 +259,6 @@ ALTER TABLE `proj`
 ALTER TABLE `review`
   ADD KEY `roll_no` (`roll_no`),
   ADD KEY `faculty_id` (`faculty_id`);
-
---
--- Indexes for table `review_details`
---
-ALTER TABLE `review_details`
-  ADD PRIMARY KEY (`rcid`,`pid`);
 
 --
 -- Indexes for table `student`
